@@ -6,3 +6,18 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+.idea/
+.lib
+.scannerwork
+*.scannerwork
+*.sonar_lock
+*.iws
+*.iml
+*.ipr
+*.ini
+/.idea/

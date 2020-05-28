@@ -40,7 +40,7 @@ public class Transcription {
         surnameCr = nameToLoverCase(surnameCr);
 
         for (int i = 0; i < surnameCr.length(); i++) {
-            // Не правильно введена фамилия (латинские буквы, символы, числа в фамилии)
+            // Неправильно введена фамилия (латинские буквы, символы, числа в фамилии)
             boolean error = false;
 
             // Формировнание фамилии на латинице
@@ -55,7 +55,7 @@ public class Transcription {
             }
 
             if (error) {
-                return "Фамилия введена не правильно !!!";
+                return "Фамилия введена неправильно !!!";
             }
         }
 
@@ -175,7 +175,7 @@ public class Transcription {
                     surnameLat = surnameLat.concat("ia");
                     break;
                 default:
-                    return "Фамилия введена не правильно !!!";
+                    return "Фамилия введена неправильно !!!";
             }
         }
         return surnameLat.substring(0, 1).toUpperCase() + surnameLat.substring(1);
@@ -194,7 +194,7 @@ public class Transcription {
         for (int i = 0; i < surnameCr.length(); i++) {
             String valLat = hashMapLetter.get(surnameCr.substring(i, i + 1));
             if (valLat == null) {
-                return "Фамилия введена не правильно !!!";
+                return "Фамилия введена неправильно !!!";
             } else {
                 surnameLat = surnameLat.concat(valLat);
             }

@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class Transcription {
     private final String[] RUS = {"а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п",
-            "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "ъ", "ы", "ь", "э", "ю", "я"};
+            "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"};
     private final String[] ENG = {"a", "b", "v", "g", "d", "e", "e", "zh", "z", "i", "i", "k", "l", "m", "n", "o", "p",
-            "r", "s", "t", "y", "f", "h", "ch", "ch", "sh", "'", "y", "'", "e", "y", "ya"};
+            "r", "s", "t", "y", "f", "kh", "ts", "ch", "sh", "shch", "j", "y", "j", "e", "y", "ia"};
     private final Map<String, String> hashMapLetter = new HashMap<>();
     private static Transcription transcription;
 
@@ -36,11 +36,11 @@ public class Transcription {
     public String transcriptionWithArray(String surnameCr) {
         String surnameLat = "";
 
-        // Переводим все символы в нижний регистр, что бы не хранить буквы верхнего и нижнего решистра
+        // Переводим все символы в нижний регистр, чтобы не хранить буквы верхнего и нижнего регистра
         surnameCr = nameToLoverCase(surnameCr);
 
         for (int i = 0; i < surnameCr.length(); i++) {
-            // В случае если символ или цифра встретится
+            // Не правильно введена фамилия (латинские буквы, символы, числа в фамилии)
             boolean error = false;
 
             // Формировнание фамилии на латинице
@@ -53,7 +53,7 @@ public class Transcription {
                     error = true;
                 }
             }
-            // Если была введена цифра или символ
+
             if (error) {
                 return "Фамилия введена не правильно !!!";
             }
@@ -157,7 +157,7 @@ public class Transcription {
                     surnameLat = surnameLat.concat("shch");
                     break;
                 case "ъ":
-                    surnameLat = surnameLat.concat("ie");
+                    surnameLat = surnameLat.concat("j");
                     break;
                 case "ы":
                     surnameLat = surnameLat.concat("y");
@@ -169,7 +169,7 @@ public class Transcription {
                     surnameLat = surnameLat.concat("e");
                     break;
                 case "ю":
-                    surnameLat = surnameLat.concat("iu");
+                    surnameLat = surnameLat.concat("y");
                     break;
                 case "я":
                     surnameLat = surnameLat.concat("ia");
@@ -182,7 +182,7 @@ public class Transcription {
     }
 
     /**
-     * Поиск и замена символов исользуя отношение ключ-значения
+     * Поиск и замена символов используя отношение ключ-значения
      *
      * @param surnameCr Фамилия на кириллице
      * @return Фамилия на латинице

@@ -16,13 +16,13 @@ public class Main {
             String surnameCr = in.next();
 
             String surnameLat1 = transcription.transcriptionWithArray(surnameCr);
-            log.info("With if-else construction: " + surnameLat1);
+            log.info("Перевод с помощью конструкции if-else: " + surnameLat1);
 
             String surnameLat2 = transcription.transcriptionWithSwitchCase(surnameCr);
-            log.info("With swith-case construction: " + surnameLat2);
+            log.info("Перевод с помощью конструкции switch-case: " + surnameLat2);
 
             String surnameLat3 = transcription.transcriptionWithHashMap(surnameCr);
-            log.info("With key-value construction: " + surnameLat3);
+            log.info("Перевод с помощью конструкции ключ-значение: " + surnameLat3);
 
         } catch (Exception e) {
             log.warning(e.toString());
